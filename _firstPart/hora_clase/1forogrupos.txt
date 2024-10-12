@@ -1,0 +1,41 @@
+1. Cual es la definicion segun PHP.NET de una sesion?
+Las sesiones son una forma sencilla de almacenar datos para usuarios de manera individual usando un ID de sesión único. Esto se puede usar para hacer persistente la información de estado entre peticiones de páginas.
+
+
+2. De forma predeterminada como se maneja la sesiones en el servidor
+    y enumere 3 alternativas
+De forma predeterminada, PHP maneja las sesiones almacenando los datos de la sesión en archivos temporales en el servidor. Cada sesión es identificada por el identificador de sesión único que se almacena en una cookie en el navegador del usuario, llamado PHPSESSID
+- Bases De Datos
+- Memcached
+- Redis
+
+
+3. Cual es el comando y la variable para manipular la sesion dentro
+    del codigo PHP?
+El comando es session_start(); y la variable es $_SESSION. Para finalizar la sesion se usa session_destroy();
+
+
+
+4. Que correlacion tiene el identificador almacenado en la coockie
+    php_session y un archivo en la carpeta temporal del servidor.
+
+En PHP, cuando se inicia una sesión, se genera un identificador único de sesión (PHPSESSID) que se almacena en una cookie en el navegador del usuario 
+El identificador de sesión en la cookie actúa como una clave para encontrar el archivo correspondiente en el servidor.  Si encuentra el archivo, carga los datos de la sesión y los asocia con la solicitud del usuario.
+
+5. Enumere y describa los casos mas comunes para usar una persistencia
+    volatil en sesiones.
+-. Autenticación de usuarios:
+Almacenar información del usuario logueado como ID, nombre de usuario o roles.
+Permite mantener el estado de autenticación mientras el usuario navega por el sitio.
+-. Carrito de compras:
+Guardar los productos seleccionados por el usuario durante su sesión de compra.
+Permite recuperar el carrito si el usuario cierra accidentalmente la página.
+-. Preferencias temporales del usuario:
+Almacenar configuraciones como el idioma seleccionado o el tema de la interfaz.
+Mejora la experiencia del usuario sin necesidad de guardar estos datos permanentemente.
+-. Datos de formularios:
+Guardar temporalmente la información ingresada en formularios de múltiples pasos.
+Útil para procesos largos donde el usuario puede necesitar pausar y continuar más tarde.
+-. Control de acceso:
+Almacenar tokens o flags que indiquen permisos específicos durante la sesión.
+Ayuda a gestionar el acceso a ciertas áreas o funcionalidades del sitio.
